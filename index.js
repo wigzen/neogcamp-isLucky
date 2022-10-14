@@ -7,10 +7,14 @@ submit.addEventListener("click", () => {
   let date = dob.value.replaceAll("-", "0").split("");
   let sum = 0;
   date.forEach((element) => (sum += Number(element)));
-  // console.log(typeof luckyNumber.value)
-  if (sum % Number(luckyNumber.value) === 0) {
+
+  if (Number(luckyNumber.value) < 0 ||date =="") {
+    display.textContent = ` Invalid Input`;
+  }
+  else if(sum % Number(luckyNumber.value) === 0) {
     display.textContent = `${luckyNumber.value} is a lucky number`;
-  } else {
+  }
+  else {
     display.textContent = `${luckyNumber.value} is not lucky number`;
   }
 });
